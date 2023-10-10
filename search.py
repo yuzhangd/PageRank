@@ -52,7 +52,7 @@ st.set_page_config(
 st.title('PageRank搜索引擎')
 
 # 获取用户输入的搜索词
-search_text = st.text_area(label="采用PageRank算法，实现一个简易的搜索引擎。访问阿里云高校计划，领域大学生专属福利: https://developer.aliyun.com/plan/student",
+search_text = st.text_area(label="采用PageRank算法，实现一个简易的搜索引擎。访问阿里云高校计划，领取大学生专属福利: https://developer.aliyun.com/plan/student",
                            height=20,
                            placeholder="请在这里搜索...")
 

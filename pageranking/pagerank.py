@@ -68,6 +68,7 @@ def pagerank(graph):
         page = get_key(page_index, i)
         rank_of_pages[page[0]] = rank[i]
 
+    print(rank_of_pages)
     return rank_of_pages
 
 pagerank(graph)
