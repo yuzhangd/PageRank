@@ -1,20 +1,20 @@
-# input: query from the search box
-# output: a list of sorted web pages
-
+# 运行本程序，启动搜索引擎
+# 使用如下命令运行本程序：streamlit run search.py
 
 import streamlit as st
 
+# 获取搜索词，输出搜索网页结果
 def get_sorted_webs(search_word):
     search_word = search_word
 
-    # 提取每个词的index，即每个词会出现在哪些网页
-    file = open('word_index.txt')
+    # 提取词的index，即词会出现在哪些网页
+    file = open('./data/word_index.txt')
     word_index_txt = file.read()
     word_index = eval(word_index_txt)
     file.close()
 
     # 提取每个网页的pagerank值
-    file = open('pagerank_of_pages.txt')
+    file = open('./data/pagerank_of_pages.txt')
     pagerank_of_pages_txt = file.read()
     pagerank_of_pages = eval(pagerank_of_pages_txt)
     file.close()
@@ -41,26 +41,29 @@ def get_sorted_webs(search_word):
     return searched_list
 
 
+# 设置streamlit前端页面，包括页面名称等
+
 st.set_page_config(
     page_title="PageRank搜索引擎",
     page_icon=":robot:",
     layout='wide'
 )
 
-
-
 st.title('PageRank搜索引擎')
 
-search_text = st.text_area(label="采用Google背后的PageRank算法，实现一个简易的搜索引擎。by：杜豫章。",
+# 获取用户输入的搜索词
+search_text = st.text_area(label="采用PageRank算法，实现一个简易的搜索引擎。访问阿里云高校计划，领域大学生专属福利: https://developer.aliyun.com/plan/student",
                            height=20,
                            placeholder="请在这里搜索...")
 
+# 把搜索词改成小写，去掉前后空格
 search_text = search_text.lower()
 search_text = search_text.strip()
 
 button = st.button("搜索", key="predict")
 searched_list = []
 
+# 用户在网页输入搜索词，点击”搜索“按键后，调用get_sorted_webs()，输出搜索结果
 if button:
     searched_list = get_sorted_webs(search_text)
 

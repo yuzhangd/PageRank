@@ -1,9 +1,5 @@
-# input: graph of the web pages (a dict)
-# output: pagerank values and rank of the web pages
-import numpy as np
-
 # 从web_graph.txt中提取graph
-file = open('web_graph.txt')
+file = open('../data/web_graph.txt')
 graph_txt = file.read()
 graph = eval(graph_txt)
 file.close()
