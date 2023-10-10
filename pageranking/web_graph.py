@@ -7,10 +7,10 @@ from get_html import get_html
 graph = {}
 
 # 爬虫的起始网页，爬虫程序将以此为起点，爬取网页
-# 搜索引擎中通常为设置多个起始网页，此处做了简化，只设置了一个
+# 搜索引擎中通常为设置多个起始网页，此处做了简化，只设置了一个，可以设置多个
 # 实际的搜索引擎通常只会爬取整个互联网的一小部分网页（但这个数量也已经很惊人）
 
-seed_url = 'https://algs4.cs.princeton.edu/home/'
+seed_urls = ['https://introcs.cs.princeton.edu/python/home/']
 
 # 输入一个网页，获取这个网页指向的网页清单
 def find_outlinks(url):
@@ -49,4 +49,5 @@ def build_the_graph(url):
     return(graph)
     
 
-build_the_graph(seed_url)
+for url in seed_urls:
+    build_the_graph(url)
